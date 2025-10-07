@@ -399,7 +399,7 @@ a[class] {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../images/hero/background.jpg") center/cover no-repeat;
+  background: url("../images/background.webp") center/cover no-repeat;
   mix-blend-mode: color-burn;
   pointer-events: none;
   z-index: 2;
@@ -409,7 +409,7 @@ a[class] {
   grid-template-columns: 45% 1fr;
   grid-template-areas: "body art" "body art";
   position: relative;
-  background: url("../images/hero/city.png") center/cover no-repeat;
+  background: url("../images/hero/city.webp") center/cover no-repeat;
   background-size: 110%;
   background-position: 0px 100%;
   width: 100%;
@@ -813,7 +813,7 @@ a[class] {
 }
 .stages-transformation__item {
   position: relative;
-  background-image: url("../images/stages-transformation/backgroundPaper.jpg");
+  background-image: url("../images/stages-transformation/backgroundPaper.webp");
   background-size: cover;
   background-position: 0% center;
   isolation: isolate;
@@ -873,7 +873,7 @@ a[class] {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../images/stages-transformation/background.jpg") center/cover no-repeat;
+  background: url("../images/stages-transformation/background.webp") center/cover no-repeat;
   mix-blend-mode: color-burn;
   pointer-events: none;
 }

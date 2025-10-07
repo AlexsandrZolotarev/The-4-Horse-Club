@@ -9,7 +9,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("../../images/hero/background.jpg") center/cover no-repeat;
+    background: url("../images/hero/background.jpg") center/cover no-repeat;
     mix-blend-mode: color-burn;
     pointer-events: none;
     z-index: 2;
@@ -21,7 +21,7 @@
       "body art"
       "body art";
     position: relative;
-    background: url("../../images/hero/city.png") center/cover no-repeat;
+    background: url("../images/hero/city.png") center/cover no-repeat;
     background-size: 110%;
     background-position: 0px 100%;
     width: 100%;
