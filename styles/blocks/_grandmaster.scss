@@ -1,0 +1,94 @@
+@use "../helpers" as *;
+
+.grandmaster {
+  position: relative;
+  width: clamp(rem(335), 90vw, rem(474));
+  aspect-ratio: 474 / 527;
+  overflow: hidden;
+
+  &__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__bang {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    &-vector {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: rem(250);
+      height: rem(366);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    &-horse {
+      position: absolute;
+      bottom: rem(68);
+      left: rem(100);
+      width: rem(140);
+      height: rem(140);
+      transform: translate(0, 0);
+      transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+  }
+
+  &__hand {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: rem(250);
+    height: rem(190);
+    transform-origin: 80% 70%;
+    transform: rotate(0deg);
+  }
+
+  &.is-inview {
+    & .grandmaster__hand.is-swinging {
+      animation: gm-hand-swing 0.45s ease-in-out forwards;
+      will-change: transform;
+    }
+  }
+
+  &.is-impact {
+    .grandmaster__bang-horse {
+      transform: translate(rem(8), rem(-8));
+    }
+    .grandmaster__bang-vector {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grandmaster__hand,
+  .grandmaster__bang-horse,
+  .grandmaster__bang-vector {
+    transition: none !important;
+    animation: none !important;
+  }
+  .grandmaster.is-impact .grandmaster__bang-vector {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes gm-hand-swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,86 @@
+@use "../helpers" as *;
+
+.event-promo {
+  margin-top: rem(80);
+  @include mobile {
+    margin-top: rem(48);
+  }
+
+  &__header {
+    margin-bottom: rem(64);
+    @include mobile {
+      margin-bottom: rem(34);
+    }
+
+    &-info {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: rem(64);
+      align-items: center;
+      @include tablet {
+        grid-template-columns: 1fr;
+        row-gap: rem(24);
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin: 0;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  &__players {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: rem(394);
+
+    @include tablet {
+      width: rem(335);
+    }
+  }
+
+  @include tablet {
+    &__title {
+      display: contents;
+    }
+    &__line--top {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    &__players {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    &__line--bottom {
+      grid-column: 1;
+      grid-row: 3;
+    }
+  }
+
+  &__description {
+    @include fluid-text(36, 28);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__body {
+    &-inner {
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: rem(44);
+
+      @include tablet {
+        grid-template-columns: auto;
+        justify-items: center;
+      }
+    }
+  }
+
+  
+}

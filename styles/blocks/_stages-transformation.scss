@@ -1,0 +1,162 @@
+@use "../helpers" as *;
+
+.stages-transformation {
+  margin-top: rem(200);
+   overflow-x: hidden;
+   overflow-x: clip; 
+  @include tablet {
+    margin-top: rem(120);
+  }
+  @include tablet-above {
+    position: relative;
+  }
+  &__title {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      a {
+        margin-top: rem(12);
+      }
+    }
+    &-link {
+      text-transform: none;
+      @include fluid-text(20, 18);
+    }
+  }
+
+  &__body {
+    margin-top: rem(54);
+    @include tablet {
+      position: relative;
+      margin-top: rem(148);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(20);
+    @include tablet {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(16);
+    margin-top: 1.75rem;
+    @include tablet-above {
+      display: none !important;
+    }
+  }
+  &__item {
+    position: relative;
+    background-image: url("../../images/stages-transformation/backgroundPaper.jpg");
+    background-size: cover;
+    background-position: 0% center;
+    isolation: isolate;
+    max-width: rem(394);
+    max-height: rem(112);
+    @include tablet {
+      width: rem(335);
+      height: rem(300);
+      max-height: rem(300);
+    }
+    * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  &__item:not(.is-active) {
+    @include tablet {
+      display: none;
+    }
+  }
+  &__item:nth-child(3) {
+    @include tablet-above {
+      grid-row: span 2 / span 2;
+      max-height: rem(244);
+    }
+  }
+
+  &__item:nth-child(4) {
+    @include tablet-above {
+      grid-row-start: 2;
+    }
+  }
+  &__item:nth-child(5) {
+    @include tablet-above {
+      grid-row-start: 2;
+    }
+  }
+
+  &__item:nth-child(6) {
+    @include tablet-above {
+      grid-row-start: 3;
+      max-height: rem(136);
+    }
+  }
+  &__item:nth-child(7) {
+    @include tablet-above {
+      grid-column: span 2 / span 2;
+      grid-row-start: 3;
+      max-width: rem(808);
+      max-height: rem(136);
+      .about-card__title {
+        max-width: rem(446);
+      }
+    }
+  }
+  &__item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../../images/stages-transformation/background.jpg")
+      center/cover no-repeat;
+    mix-blend-mode: color-burn;
+    pointer-events: none;
+  }
+  &__airplane {
+    position: absolute;
+    z-index: 1;
+    transition: all 0.3s ease;
+    bottom: 0;
+    right: 10%;
+    transform: rotate(355deg);
+    opacity: 0;
+    transform: translateX(30vw) rotate(355deg);
+    transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1),
+      opacity 0.6s ease;
+    &.is-animating {
+      will-change: transform, opacity;
+    }
+    .stages-transformation.is-inview & {
+      opacity: 1;
+      transform: rotate(355deg);
+    }
+
+    @include tablet {
+      top: -15%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      width: 320px;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      opacity: 0;
+      transform: translate(calc(-50% + 40vw), -50%) rotate(-3deg);
+
+      .stages-transformation.is-inview & {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-3deg);
+      }
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stages-transformation__airplane {
+    transition: none;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

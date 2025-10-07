@@ -1,0 +1,72 @@
+@use "../helpers" as *;
+
+.details {
+  display: grid;
+  grid-template-columns: auto;
+  &__header {
+    @include tablet {
+      margin-top: rem(24);
+    }
+  }
+  &__title {
+    @include fluid-text(36, 28);
+    &-accent {
+    }
+  }
+
+  &__body {
+    display: grid;
+    font-family: var(--font-family-accent);
+    margin-bottom: rem(48);
+    margin-top: rem(44);
+    &-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      @include tablet {
+        grid-template-columns: 1fr;
+      }
+      dd {
+        margin: 0;
+        font-weight: bold;
+        padding: rem(16);
+        @include tablet {
+          padding: 0;
+          padding-top: rem(12);
+          padding-bottom: rem(16);
+        }
+      }
+      dt {
+        color: var(--color-gray);
+        padding: rem(16);
+        padding-left: 0;
+        border-right: var(--border);
+        @include tablet {
+          border-right: none;
+          padding: 0;
+          padding-top: rem(16);
+        }
+      }
+
+      word-spacing: 0.3em;
+
+      &--red {
+        text-decoration: none;
+        text-decoration: line-through red 2px;
+      }
+    }
+    &-row:not(:last-child) {
+      border-bottom: var(--border);
+    }
+  }
+  &__price {
+    &--old {
+    }
+  }
+  &__promo {
+    @include fluid-text(20, 18);
+    line-height: 1.2;
+    &-link {
+    }
+  }
+}

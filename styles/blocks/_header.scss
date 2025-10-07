@@ -1,0 +1,15 @@
+@use "../helpers" as *;
+
+.header {
+  position: absolute;
+  grid-area: header;
+  z-index: 10;
+   margin-inline: rem(20);
+  @include tablet-above {
+    margin-left: rem(72);
+  }
+
+  &__body {
+    padding-block: rem(26);
+  }
+}

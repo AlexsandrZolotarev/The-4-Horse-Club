@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+.running-line {
+  overflow: hidden;
+  background-color: var(--color-red);
+  color: var(--color-light);
+  text-transform: uppercase;
+  font-size: fluid(22, 16);
+  padding-block: rem(18);
+  display: block;
+  position: relative;
+  z-index: 40;
+  &__track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    white-space: nowrap;
+    will-change: transform;
+    animation: runLine 20s linear infinite;
+  }
+  &__item {
+    flex: 0 0 auto;
+  }
+  @keyframes runLine {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}

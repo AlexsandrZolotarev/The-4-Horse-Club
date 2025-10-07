@@ -1,0 +1,12 @@
+@use "../helpers" as *;
+
+.link {
+    display: inline;
+    @include fluid-text(20, 18);
+    font-family: var(--font-family-accent);
+    color: var(--color-blue);
+    border: rem(1) solid var(--color-blue);
+    border-radius: rem(62);
+    padding: rem(12);
+    text-decoration: none;
+}

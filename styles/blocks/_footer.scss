@@ -1,0 +1,19 @@
+@use "../helpers" as *;
+
+.footer {
+  margin-top: rem(140);
+  @include tablet{
+    margin-top: rem(100);
+  }
+  &__inner {
+    background-color: var(--color-beige);
+  }
+  &__extra {
+    font-family: var(--font-family-accent);
+    font-size: rem(16);
+    color: var(--color-gray);
+    padding-top: rem(40);
+    padding-bottom: fluid(72,60);
+    padding-inline: fluid(72,20);
+  }
+}

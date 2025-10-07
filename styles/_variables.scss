@@ -1,0 +1,22 @@
+@use "helpers" as *;
+
+:root {
+  --color-light: white;
+  --color-dark: #1f1f1f;
+  --color-red: #f54932;
+  --color-blue: #3057a2;
+  --color-gray: #313131;
+  --color-beige: #e9ded4;
+  --color-gray2: #d9d9d9;
+  --color-gray3: #d9d9d9;
+  --color-yellow: #FBCE51;
+  --color-border: rgb(21, 21, 21,0.6);
+  --border: 2px solid var(--color-border);
+
+  --font-family-base: "Merriweather", "sans-serif";
+  --font-family-accent: "GolosText", "sans-serif";
+  --container-width: #{rem(1200)};
+  --container-padding-x: #{rem(20)};
+
+  --transition-duration: 0.2s;
+}

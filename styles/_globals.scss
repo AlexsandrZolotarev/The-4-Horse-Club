@@ -1,0 +1,75 @@
+@use "helpers" as *;
+html {
+   scroll-behavior: smooth;
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  color: var(--color-gray);
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+h1,
+.h1 {
+  @include fluid-text(60, 36);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  @include fluid-text(54, 36);
+  line-height: 1.35;
+}
+
+h3,
+.h3 {
+  @include fluid-text(36, 28);
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  font-family: var(--font-family-accent);
+  color: var(--color-blue);
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+:focus-visible {
+  outline: rem(2) dashed var(--color-light);
+  outline-offset: rem(4);
+  transition-duration: 0s !important;
+}

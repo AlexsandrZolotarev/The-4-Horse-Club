@@ -1,0 +1,25 @@
+@use 'normalise';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+
+@use './blocks/logo';
+@use './blocks/header';
+
+@use './blocks/running-line';
+@use './blocks/footer';
+
+@use './blocks/hero';
+
+@use './blocks/event-promo';
+@use './blocks/grandmaster';
+@use './blocks/details';
+
+@use './blocks/about-card';
+@use './blocks/stages-transformation';
+@use './blocks/pagination';
+
+@use './blocks/participant';
+@use './blocks/participants';

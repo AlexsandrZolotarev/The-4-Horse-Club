@@ -1,0 +1,86 @@
+@use "../helpers" as *;
+
+.participants {
+  display: grid;
+  margin-top: rem(200);
+  @include tablet-above {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title pagination"
+      "body  body";
+    column-gap: rem(24);
+    row-gap: rem(40);
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "body"
+      "pagination";
+    row-gap: rem(24);
+    align-items: center;
+    justify-items: center;
+     margin-top: rem(120);
+  }
+
+  &__header,
+  &__header-inner {
+    display: contents;
+  }
+
+  &__title {
+    grid-area: title;
+    margin: 0;
+  }
+
+  &__pagination {
+    grid-area: pagination;
+    button {
+      width: rem(44);
+      height: rem(44);
+    }
+  }
+
+  &__body {
+    grid-area: body;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24);
+    will-change: contents;
+    contain: layout paint;
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: rem(16);
+    }
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateY(rem(12)) scale(0.985);
+    transition: opacity 4s ease,
+    transform 4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    pointer-events: none;
+
+    &.is-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    @include tablet-above {
+      &.is-active:nth-child(3n + 1) {
+        transition-delay: 0ms;
+      }
+      &.is-active:nth-child(3n + 2) {
+        transition-delay: 70ms;
+      }
+      &.is-active:nth-child(3n + 3) {
+        transition-delay: 140ms;
+      }
+    }
+  }
+}

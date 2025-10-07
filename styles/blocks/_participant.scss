@@ -1,0 +1,56 @@
+@use "../helpers" as *;
+
+.participant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family-accent);
+  &__figure {
+    overflow: hidden;
+    max-width: rem(320);
+    max-height: rem(320);
+    @include tablet {
+      width: rem(244);
+      height: rem(244);
+    }
+  }
+  &__image {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.4s ease, transform 0.5s ease;
+    .participants__item.is-active & {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__name {
+    text-decoration: none;
+    text-transform: none;
+    font-weight: 600;
+    font-size: rem(24);
+    margin-top: rem(28);
+  }
+  &__description {
+    font-size: rem(20);
+    color: var(--color-gray3);
+    margin-top: rem(6);
+    @include tablet {
+      margin-top: rem(8);
+    }
+  }
+  &__more {
+    border-radius: rem(62);
+    padding: rem(12);
+    margin-top: rem(20);
+    border: 1px solid var(--color-blue);
+  }
+  &__more:hover {
+    background-color: var(--color-blue);
+    color: var(--color-light);
+  }
+  &:hover {
+    transform: translateY(rem(-2));
+    transition: transform 0.25s ease;
+  }
+}

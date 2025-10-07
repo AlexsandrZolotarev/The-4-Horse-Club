@@ -1,0 +1,73 @@
+@use "../helpers" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(16);
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(36);
+    height: rem(36);
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-gray2);
+    cursor: not-allowed;
+    transition: background-color 0.2s;
+    .arrow {
+      position: relative;
+      width: rem(13);
+      height: rem(12);
+      border-right: rem(2) solid white;
+      border-bottom: rem(2) solid white;
+      transition: border-color 0.2s;
+    }
+
+    &--prev .arrow {
+      transform: rotate(135deg);
+      right: rem(-2);
+    }
+    &--next .arrow {
+      transform: rotate(315deg);
+      right: rem(2);
+    }
+  }
+  &__arrow.is-active {
+    cursor: pointer;
+    background-color: var(--color-gray);
+  }
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: rem(6);
+    .dot {
+      width: rem(10);
+      height: rem(10);
+      border-radius: 50%;
+      background-color: var(--color-gray2);
+      transition: background-color 0.3s;
+      &.is-active {
+        background-color: var(--color-gray);
+      }
+    }
+  }
+  &__status {
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+    font-size: rem(16);
+  }
+  &__current {
+  }
+  &__delimiter {
+    font-size: rem(16);
+    color: var(--color-gray);
+    opacity: 0.6;
+  }
+  &__total {
+    font-size: rem(16);
+    opacity: 0.6;
+    color: var(--color-gray);
+  }
+}
